@@ -1,0 +1,27 @@
+name: Check Docker Image Update
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # รันทุกๆ 30 นาที
+
+jobs:
+  check-docker-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull latest Docker image
+        run: docker pull registry.hf.space/thanabodin-aeropulse-project:latest
+
+      - name: Get Docker image digest
+        run: docker inspect registry.hf.space/thanabodin-aeropulse-project:latest --format='{{index .RepoDigests 0}}'
+
+      - name: Compare digests and trigger update
+        run: |
+          OLD_DIGEST=$(cat previous_digest.txt)
+          NEW_DIGEST=$(docker inspect registry.hf.space/thanabodin-aeropulse-project:latest --format='{{index .RepoDigests 0}}')
+          if [ "$OLD_DIGEST" != "$NEW_DIGEST" ]; then
+            echo "New image found, triggering deployment!"
+            echo $NEW_DIGEST > previous_digest.txt
+            # add steps to update deployment file and push to ArgoCD repo
+          else
+            echo "No new image."
+          fi
