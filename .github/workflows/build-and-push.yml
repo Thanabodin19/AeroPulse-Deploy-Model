@@ -32,8 +32,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            thanabodin19/AeroPulse:latest
-            thanabodin19/AeroPulse:${{ github.run_number }}
+            thanabodin19/aeropulse:latest
+            thanabodin19/aeropulse:${{ github.run_number }}
 
       - name: Clone Repository
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
