@@ -12,12 +12,12 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 
 Run backend
 ```bash
-fastapi dev backend/main.py   
+fastapi dev main.py   
 ```
 
 Run frontend
 ```bash
-streamlit run frontend/visualizer.py 
+streamlit run streamlit_app.py 
 ```
 
 Running the Docker Container:
