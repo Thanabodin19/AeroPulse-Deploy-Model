@@ -1,9 +1,10 @@
 name: Check Docker Image Update
 
 on:
-  schedule:
-    - cron: '*/3 * * * *' # รันทุกๆ 3 นาที
-
+  push:
+    branches:
+      - main
+      
 jobs:
   check-docker-update:
     runs-on: ubuntu-latest
