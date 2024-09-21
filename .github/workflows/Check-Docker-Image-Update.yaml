@@ -1,28 +1,41 @@
-name: Check Docker Image Update
+name: Update Deployment on Docker Image Change
 
 on:
   push:
     branches:
       - main
-      
+
 jobs:
-  check-docker-update:
+  update-deployment:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Pull latest Docker image
-        run: docker pull registry.hf.space/thanabodin-aeropulse-project:latest
+        run: |
+          docker pull registry.hf.space/thanabodin-aeropulse-project:latest
 
       - name: Get Docker image digest
-        run: docker inspect registry.hf.space/thanabodin-aeropulse-project:latest --format='{{index .RepoDigests 0}}'
-
-      - name: Compare digests and trigger update
+        id: get_digest
         run: |
-          OLD_DIGEST=$(cat previous_digest.txt)
-          NEW_DIGEST=$(docker inspect registry.hf.space/thanabodin-aeropulse-project:latest --format='{{index .RepoDigests 0}}')
+          echo "NEW_DIGEST=$(docker inspect registry.hf.space/thanabodin-aeropulse-project:latest --format='{{index .RepoDigests 0}}')" >> $GITHUB_ENV
+
+      - name: Check if the image has changed
+        run: |
+          if [ -f previous_digest.txt ]; then
+            OLD_DIGEST=$(cat previous_digest.txt)
+          else
+            OLD_DIGEST=""
+            echo "No previous digest found. Assuming new image."
+            echo "" > previous_digest.txt  # สร้างไฟล์ใหม่
+          fi
+          
           if [ "$OLD_DIGEST" != "$NEW_DIGEST" ]; then
-            echo "New image found, triggering deployment!"
+            echo "New image found, updating deployment file."
             echo $NEW_DIGEST > previous_digest.txt
-            # add steps to update deployment file and push to ArgoCD repo
+            # Update the deployment file with the new image
+            sed -i "s|image: registry.hf.space/thanabodin-aeropulse-project:.*|image: registry.hf.space/thanabodin-aeropulse-project:latest|" path/to/your/deployment.yaml
           else
             echo "No new image."
           fi
