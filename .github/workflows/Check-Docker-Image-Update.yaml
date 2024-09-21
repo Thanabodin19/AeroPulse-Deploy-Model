@@ -34,8 +34,6 @@ jobs:
           if [ "$OLD_DIGEST" != "$NEW_DIGEST" ]; then
             echo "New image found, updating deployment file."
             echo $NEW_DIGEST > previous_digest.txt
-            # Update the deployment file with the new image
-            sed -i "s|image: registry.hf.space/thanabodin-aeropulse-project:.*|image: registry.hf.space/thanabodin-aeropulse-project:latest|" path/to/your/deployment.yaml
           else
             echo "No new image."
           fi
