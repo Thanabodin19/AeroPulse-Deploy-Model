@@ -47,7 +47,7 @@ jobs:
       - name: Access cloned repository content
         run: |
           cd deploy-model-k8s
-          sed -i "s/thanabodin19\/AeroPulse:[0-9]*\|thanabodin19\/AeroPulse:latest/thanabodin19\/AeroPulse:${{ github.run_number }}/" deployment.yml
+          sed -i "s/thanabodin19\/aeropulse:[0-9]*\|thanabodin19\/aeropulse:latest/thanabodin19\/aeropulse:${{ github.run_number }}/" deployment.yml
           git config --global user.email "Thanabodin.kea@gmail.com"
           git config --global user.name "thanabodin19"
           git add deployment.yml
