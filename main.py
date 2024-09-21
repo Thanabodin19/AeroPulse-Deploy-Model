@@ -8,6 +8,7 @@ app = FastAPI()
 def greetings():
     return {"Greetings": "This is Airline Passenger Satisfaction Data Pipeline API."}
 
+# test
 @app.get("/rawdata")
 def get_raw_data():
     # Define the scope for Google Sheets API
