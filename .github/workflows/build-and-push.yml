@@ -51,7 +51,8 @@ jobs:
           git config --global user.email "Thanabodin.kea@gmail.com"
           git config --global user.name "thanabodin19"
           git add deployment.yml
-          git commit -m "Update deployment.yml ${{ github.run_number }}"
+          git commit -m "Update deployment.yml ${{ github.run_number }}" || echo "No changes to commit"
+      
 
       - name: Push to Repository deploy-model-k8s
         run: |
