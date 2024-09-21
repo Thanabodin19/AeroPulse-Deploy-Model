@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 jobs:
   check-docker-update:
     runs-on: ubuntu-latest
@@ -21,7 +21,6 @@ jobs:
           NEW_DIGEST=$(docker inspect registry.hf.space/thanabodin-aeropulse-project:latest --format='{{index .RepoDigests 0}}')
           if [ "$OLD_DIGEST" != "$NEW_DIGEST" ]; then
             echo "New image found, triggering deployment!"
-            echo $NEW_DIGEST > previous_digest.txt
             # add steps to update deployment file and push to ArgoCD repo
           else
             echo "No new image."
