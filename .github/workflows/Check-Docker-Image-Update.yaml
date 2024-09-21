@@ -2,7 +2,7 @@ name: Check Docker Image Update
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # รันทุกๆ 30 นาที
+    - cron: '*/3 * * * *' # รันทุกๆ 3 นาที
 
 jobs:
   check-docker-update:
