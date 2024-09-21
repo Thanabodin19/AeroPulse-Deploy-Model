@@ -26,4 +26,4 @@ jobs:
           command: |
                   git config user.email "thanabodin.kea@gmail.com"
                   git config user.name "Thanabodin19"
-                  git push -f https://$HF_USERNAME:$HF_PERSONAL_TOKEN@huggingface.co/spaces/Thanabodin/test_ci main
+                  git push -f https://$HF_USERNAME:$HF_PERSONAL_TOKEN@huggingface.co/spaces/Thanabodin/Deploy-Model-AeroPulse main
