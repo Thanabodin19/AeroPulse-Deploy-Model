@@ -1,7 +1,11 @@
-fastapi
-uvicorn
-gspread
-google-auth
+openpyxl
 streamlit
 pandas
 requests
+gspread
+scikit-learn
+google-auth
+google-auth-oauthlib
+fastapi
+joblib
+uvicorn
