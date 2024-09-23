@@ -17,9 +17,12 @@ jobs:
     resource_class: small
     steps:
       - run: 
-          name: install git
-          command: apk update && apk add openssh-client git
+          name: install git and git-lfs
+          command: apk update && apk add openssh-client git git-lfs
       - checkout
+      - run:
+          name: initialize git-lfs
+          command: git lfs install
       - run:
           name: push to Hugging Face Hub
           command: |
