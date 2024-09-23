@@ -18,8 +18,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Wait for 3 minutes
-        run: sleep 180  # Wait for 180 seconds
+      - name: Wait for 1 minutes 30 seconds
+        run: sleep 90  # Wait for 90 seconds
 
       - name: Pull Image from Hugging Face
         run: |
