@@ -277,12 +277,10 @@ if __name__ == "__main__":
         
                     st.markdown("<h3 style='margin-bottom: 20px; text-align: center;'></h3>", unsafe_allow_html=True)
     
-    tab1 = st.tabs(["View Raw Data"])
-    
-    with tab1:
-        with st.container():
-            if res != None:
-                df = pd.DataFrame(res['data'])
-                st.dataframe(df) 
-            else:
-                st.markdown("Waiting for data...")
+    st.markdown("### ***View Raw Data***")
+    with st.container():
+        if res != None:
+            df = pd.DataFrame(res['data'])
+            st.dataframe(df) 
+        else:
+            st.markdown("Waiting for data...")
