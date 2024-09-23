@@ -277,7 +277,7 @@ if __name__ == "__main__":
         
                     st.markdown("<h3 style='margin-bottom: 20px; text-align: center;'></h3>", unsafe_allow_html=True)
     
-    tab1, tab2 = st.tabs(["View Raw Data", "Manual Classify"])
+    tab1 = st.tabs(["View Raw Data"])
     
     with tab1:
         with st.container():
@@ -286,5 +286,3 @@ if __name__ == "__main__":
                 st.dataframe(df) 
             else:
                 st.markdown("Waiting for data...")
-    with tab2:
-        pass
