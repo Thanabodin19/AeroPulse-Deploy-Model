@@ -24,9 +24,10 @@ jobs:
           name: initialize git-lfs
           command: git lfs install
       - run:
-          name: push to Hugging Face Hub
+          name: sync and push to Hugging Face Hub
           command: |
             git config --global user.email "thanabodin.kea@gmail.com"
             git config --global user.name "Thanabodin19"
             git lfs fetch --all
+            git pull --rebase origin main
             git push -f https://$HF_USERNAME:$HF_PERSONAL_TOKEN@huggingface.co/spaces/Thanabodin/aeropulse-final main
