@@ -210,7 +210,7 @@ def get_eco_summary():
     return {"data": data[6:], "preds": preds.tolist(), "feature_importance": feature_importance_records}
 
 @app.get("/ecoPlus/summary")
-def get_eco_summary():
+def get_ecoPlus_summary():
     file_path = "/app/backend/AeroPulse_Passenger_Data.xlsx"
 
     # Read a specific sheet by name
