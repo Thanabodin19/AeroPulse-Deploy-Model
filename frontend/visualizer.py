@@ -47,7 +47,6 @@ def transform_pipeline_ecoPlus(df):
     df_encoded_reset = df_encoded.reset_index(drop=True)
 
     df_final = pd.concat([df_encoded_reset, df_drop_dummy_reset], axis=1)
-    df_final.to_csv("eco_encode.csv", index=False)
     
     # standardization
     df_scaler = scaler.transform(df_final.iloc[:-6])
@@ -94,7 +93,6 @@ def transform_pipeline_eco(df):
     df_encoded_reset = df_encoded.reset_index(drop=True)
 
     df_final = pd.concat([df_encoded_reset, df_drop_dummy_reset], axis=1)
-    df_final.to_csv("eco_encode.csv", index=False)
     
     # standardization
     df_scaler = scaler.transform(df_final.iloc[:-6])
