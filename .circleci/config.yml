@@ -4,8 +4,7 @@ workflows:
   main:
     jobs:
       - sync-to-huggingface:
-          context:
-            - HuggingFace
+          context: HuggingFace
           filters:
             branches:
               only:
@@ -22,8 +21,8 @@ jobs:
           command: apk update && apk add openssh-client git
       - checkout
       - run:
-          name: push to Huggingface hub
+          name: push to Hugging Face Hub
           command: |
-                  git config user.email "thanabodin.kea@gmail.com"
-                  git config user.name "Thanabodin19"
-                  git push -f https://$HF_USERNAME:$HF_PERSONAL_TOKEN@huggingface.co/spaces/Thanabodin/Deploy-Model-AeroPulse main
+            git config --global user.email "thanabodin.kea@gmail.com"
+            git config --global user.name "Thanabodin19"
+            git push -f https://$HF_USERNAME:$HF_PERSONAL_TOKEN@huggingface.co/spaces/Thanabodin/Deploy-Model-AeroPulse main
