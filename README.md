@@ -55,3 +55,8 @@ docker build -t aeropulse-app .
 ```bash
 docker run -p 7860:7860 -p 8000:8000 aeropulse-app
 ```
+
+## Developed by
+1. https://github.com/Thanabodin19
+2. https://github.com/Kariusdi
+3. https://github.com/JaoTaohu
