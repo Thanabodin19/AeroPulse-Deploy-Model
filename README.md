@@ -8,27 +8,50 @@ pinned: false
 license: mit
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# AeroPulse ✈️
 
-Run backend
-```bash
-fastapi dev main.py   
-```
+## <mark>Our Applications</mark> 🖥️
 
-Run frontend
-```bash
-streamlit run streamlit_app.py 
-```
+### CI/CD Deployment (no GoogleSheet API)
+
+> Deployment Architecture
+
+![architecture](./assets/AeroPulseArchitecture.png)
+
+#### Application ⚡️
+
+https://huggingface.co/spaces/Thanabodin/aeropulse-final
+
+- Main code: https://github.com/Thanabodin19/deploy-model 
+
+- Manifasts: https://github.com/Thanabodin19/deploy-model-k8s 
+
+### .......
+
+### Hugging Face Space (with GoogleSheet API)
+
+#### Application ⚡️
+https://huggingface.co/spaces/Thanabodin/AeroPulse_Project
+
+## <mark>User Interface</mark> 💄
+![ui](./assets/UI.png)
 
 Running the Docker Container:
 After creating your Dockerfile, you can build and run the container:
 
-Build the Docker image:
+## <mark>Business Understanding and Data Mining</mark> 🪢
+- repository: https://github.com/MLol-3/AeroPulse
+
+## <mark>How to run our app</mark> 🐳
+
+1. Build the Docker image:
+
 ```bash
 docker build -t aeropulse-app .
 ```
-Run the Docker container:
+
+2. Run the Docker container:
+
 ```bash
 docker run -p 7860:7860 -p 8000:8000 aeropulse-app
 ```
-This will expose the Streamlit frontend on port 8501 and the FastAPI backend on port 8000.
